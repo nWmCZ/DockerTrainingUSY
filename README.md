@@ -19,3 +19,4 @@ https://slides.com/nwmcz/docker-hk
 ## Quick links
 https://www.docker.com
 https://docs.docker.com/get-started/
+https://docs.docker.com/reference/run/
