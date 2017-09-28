@@ -1,0 +1,46 @@
+# Author: Stanislav Novotny
+
+# Prerequisites
+# springboottomcat:0.1
+
+# Run
+# docker-compose up -d
+
+# Test
+# docker-compose ps
+# http://localhost:8080/SpringBootProjectMaven-0.1-SNAPSHOT/
+
+version: '3'
+
+services:
+ db:
+  image: mysql:5.7
+  environment:
+   MYSQL_ROOT_PASSWORD: password
+   MYSQL_DATABASE: springboot
+  ports:
+   - "3306:3306"
+  networks:
+   sbn:
+    ipv4_address: 10.10.10.2
+
+
+ sb:
+  depends_on:
+    - db
+  image: springboottomcat:0.1
+  environment:
+    DB_IP: 10.10.10.2
+  ports:
+   - "8080:8080"
+  networks:
+    sbn:
+     ipv4_address: 10.10.10.3
+
+networks:
+  sbn:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: 10.10.10.0/24
