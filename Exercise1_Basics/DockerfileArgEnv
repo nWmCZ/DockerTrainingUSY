@@ -1,0 +1,21 @@
+# Author: Stanislav Novotny
+
+# Build
+# docker build -t example1:0.4 -f DockerfileArgEnv .
+
+# Run
+# docker run --rm -ti example1:0.4 bash
+
+# Test
+# echo $MYARG
+# echo $MYENV
+
+FROM ubuntu
+
+ARG MYARG=myargvalue
+
+ENV MYENV myenvvalue
+
+RUN echo ${MYARG}
+
+RUN echo ${MYENV}

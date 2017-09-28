@@ -1,0 +1,9 @@
+# Author: Stanislav Novotny
+
+# Build
+# docker build -t example1:0.2 -f Dockerfile_from_only .
+
+# Run
+# docker run example1:0.2
+
+FROM alpine

@@ -1,0 +1,12 @@
+# Author: Stanislav Novotny
+
+# Build
+# docker build -t example1:0.3 -f Dockerfile_ubuntu_pwd .
+
+# Run
+# docker run --rm example1:0.3
+
+FROM ubuntu
+
+CMD ["pwd"]
+
