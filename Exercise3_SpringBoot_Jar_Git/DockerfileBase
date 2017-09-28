@@ -1,0 +1,14 @@
+# Author: Stanislav Novotny
+
+# Build
+# docker build -t ubuntu-jgm:0.1 -f DockerfileBase .
+
+# Run
+# docker run --rm ubuntu-jgm:0.1
+
+FROM ubuntu
+
+RUN apt-get update && apt-get install -y \
+    git-all \
+    openjdk-8-jdk \
+    maven
