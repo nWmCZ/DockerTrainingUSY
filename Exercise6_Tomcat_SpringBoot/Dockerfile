@@ -40,4 +40,4 @@ RUN mv /installer/SpringBootProjectMaven-0.1-SNAPSHOT.war /opt/apache-tomcat-${T
 
 EXPOSE 8080
 
-CMD ["sh", "-c", "/opt/apache-tomcat-${TOMCAT_VERSION}/bin/catalina.sh run"]
+CMD ["sh", "-c", "sleep 15 && /opt/apache-tomcat-${TOMCAT_VERSION}/bin/catalina.sh run"]
