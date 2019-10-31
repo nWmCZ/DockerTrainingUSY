@@ -1,0 +1,17 @@
+# Author: Stanislav Novotny
+
+# Run
+# docker-compose up -d
+
+# Test
+# docker-compose ps
+# http://localhost:8161/
+
+version: '3'
+
+services:
+ broker:
+  image: novst/apache-activemq
+  ports:
+   - "8161-8169:8161"
+   - "61616"

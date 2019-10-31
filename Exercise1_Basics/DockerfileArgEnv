@@ -2,13 +2,11 @@
 
 # Build
 # docker build -t example1:0.4 -f DockerfileArgEnv .
+# docker build -t example1:0.4 --build-arg MYARG=overwrittenarg -f DockerfileArgEnv .
 
 # Run
 # docker run --rm -ti example1:0.4 bash
-
-# Test
-# echo $MYARG
-# echo $MYENV
+# docker run --rm example1:0.4 printenv
 
 FROM ubuntu
 

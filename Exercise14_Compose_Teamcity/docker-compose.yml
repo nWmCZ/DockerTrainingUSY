@@ -1,0 +1,18 @@
+version: "3"
+services:
+  server:
+    image: jetbrains/teamcity-server
+    ports:
+      - "8111:8111"
+    volumes:
+      - ./data_dir:/data/teamcity_server/datadir
+      - ./log_dir:/opt/teamcity/logs
+    environment:
+      - TEAMCITY_SERVER_MEM_OPTS=-Xmx1024m
+  teamcity-agent1:
+    image: jetbrains/teamcity-agent
+    environment:
+      - SERVER_URL=http://server:8111
+      - AGENT_NAME=agent1
+      - TEAMCITY_AGENT_MEM_OPTS=-Xmx1024m
+      - DOCKER_IN_DOCKER=start

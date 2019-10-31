@@ -1,0 +1,34 @@
+---
+- name: Install epel-release
+  yum:
+    name:
+      - epel-release
+
+- name: Install VirtualBox repository
+  get_url:
+    url: http://download.virtualbox.org/virtualbox/rpm/rhel/virtualbox.repo
+    dest: /etc/yum.repos.d/virtualbox.repo
+
+- name: Install Virtualbox
+  yum:
+    name:
+      - VirtualBox-6.0
+      - binutils
+      - gcc
+      - libgomp
+      - make
+      - patch
+      - glibc-headers
+      - glibc-devel
+      - perl
+      - kernel-devel
+      - kernel-headers
+      - dkms
+
+- name: /usr/lib/virtualbox/vboxdrv.sh setup
+  shell: /usr/lib/virtualbox/vboxdrv.sh setup
+
+- name: Install Vagrant
+  yum:
+    name:
+      - https://releases.hashicorp.com/vagrant/2.2.6/vagrant_2.2.6_x86_64.rpm

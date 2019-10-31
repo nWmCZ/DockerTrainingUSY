@@ -2,6 +2,20 @@
 Author: Stanislav Novotny
 -->
 # Docker workshop
+Repository with practice examples
+## Useful links
+### Dockerfile reference
+https://docs.docker.com/engine/reference/builder/
+### Dockerfile best practices
+https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
+### Multi-stage builds
+https://docs.docker.com/develop/develop-images/multistage-build/
+### Docker-compose reference
+https://docs.docker.com/compose/compose-file/
+### Docker swarm tutorial
+https://docs.docker.com/engine/swarm/swarm-tutorial/
+### Minikube installation
+https://kubernetes.io/docs/setup/learning-environment/minikube/
 
 ## Commands
 docker version
@@ -50,3 +64,13 @@ docker start/stop <#container_id>
 - https://docs.docker.com/get-started/
 - https://docs.docker.com/engine/reference/run/
 - http://training.play-with-docker.com/
+
+# JMS
+https://github.com/vromero/activemq-artemis-docker
+
+# Preparation
+```
+ansible-playbook -i inventory_digital_ocean.ini install_docker.yml
+ansible-playbook -i inventory_digital_ocean.ini vagrant_with_virtualbox_for_docker_training.yml
+
+``` 

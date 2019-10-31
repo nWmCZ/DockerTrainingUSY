@@ -1,0 +1,40 @@
+---
+#- import_playbook: update_os_and_reboot.yml
+#
+- import_playbook: install_virtualbox.yml
+
+- name: Vagrant template and run
+  hosts: all
+  tasks:
+    - name: Create folder vagrant_vms
+      file:
+        path: /root/vagrant_vms
+        state: directory
+    - name: Create Vagrantfile
+      copy:
+        src: ./vagrant/Vagrantfile
+        dest: /root/vagrant_vms/Vagrantfile
+    - name: vagrant up -d
+      command: vagrant up -d
+      args:
+        chdir: /root/vagrant_vms/
+
+#- name: Vagrant force destroy
+#  hosts: all
+#  tasks:
+#    - name: vagrant destroy -f
+#      command: vagrant destroy -f
+#      args:
+#        chdir: /root/vagrant_vms/
+
+#- name: Vagrant status
+#  hosts: all
+#  tasks:
+#    - name: vagrant status
+#      command: vagrant status
+#      args:
+#        chdir: /root/vagrant_vms/
+#      register: vagrant_status
+#    - name: Print vagrant_status
+#      debug:
+#        msg: "{{ vagrant_status.stdout }}"

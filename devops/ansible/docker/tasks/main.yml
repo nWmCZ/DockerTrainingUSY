@@ -1,0 +1,54 @@
+---
+- name: Remove old Docker packages
+  yum:
+    name:
+      - docker
+      - docker-client
+      - docker-client-latest
+      - docker-common
+      - docker-latest
+      - docker-latest-logrotate
+      - docker-logrotate
+      - docker-engine
+    state: absent
+
+- name: Install Docker support packages
+  yum:
+    name:
+      - yum-utils
+      - device-mapper-persistent-data
+      - lvm2
+      - epel-release
+    state: present
+
+- name: Add Docker repository
+  command: yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+
+- name: Install Docker
+  yum:
+    name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+    state: present
+
+- name: Enable and start Docker
+  service:
+    name: docker
+    state: started
+    enabled: true
+
+- name: Install pip
+  yum:
+    name: python-pip
+    state: present
+
+- name: Install docker pip package
+  pip:
+    name: docker
+    state: present
+
+- name: Install docker-compose
+  pip:
+    name: docker-compose
+    state: present
