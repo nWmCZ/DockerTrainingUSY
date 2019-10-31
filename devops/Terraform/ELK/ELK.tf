@@ -1,5 +1,5 @@
 provider "digitalocean" {
-  token = "a26239a366ff3437e7aadf2c9cdd9a7317a10dc647eb13cdb81fa4befbb0be41"
+  token = "digital_ocean_api_token"
 }
 
 resource "digitalocean_droplet" "elk" {
